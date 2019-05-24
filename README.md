@@ -12,3 +12,12 @@ O frontend utilizando um proxy reverso encaminha a requisição para o app e qua
 Uma vez que a fila começa a ter mensagens a serem processadas, os workers fará uma chamada para a fila e começa a processar o registro.
 
 Todos estes containers serão montados a partir do docker compose.
+
+<h1>Iniciando a composição do banco</h1>
+<p>Executando o <b>docker-compose up -d</b> para rodar o container no modo daemon.</p>
+<p>Executando o comando dentro do serviço db definindo o usuário com -U "postgres" e o comando com -c '\l'. <br/> 
+Este comando é para listar os banco de dados dentro da instância. <br/> 
+<b>docker-compose exec db psql -U postgres -c '\l'</b></p>
+
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/db.png"/>
+

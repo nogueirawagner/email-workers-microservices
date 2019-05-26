@@ -49,4 +49,4 @@ A requisição será enviada pelo nginx diretamente para esta rota, ao receber a
  <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/sender.png"/>
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/python.png"/>
 
-<span style="color: rgb(0, 0, 0);">Testando cor</span> <p><b>Perceba que já temos duas portas expostas para o mundo real e isso não é bom. Não faz sentido deixar a porta do app exposta sendo que apenas o nginx deve acessá-lo internamente. Para isso vamos configurar o que é chamado de Proxy Reverso no nginx e esconder a porta do app.</b></p>
+<span style='color: rgb(0, 0, 0);'>Testando cor</span> <p><b>Perceba que já temos duas portas expostas para o mundo real e isso não é bom. Não faz sentido deixar a porta do app exposta sendo que apenas o nginx deve acessá-lo internamente. Para isso vamos configurar o que é chamado de Proxy Reverso no nginx e esconder a porta do app.</b></p>

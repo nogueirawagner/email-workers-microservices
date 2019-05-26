@@ -7,6 +7,16 @@ services:
     volumes:
       # Volume dos dados
       - dados:/var/lib/postgresql/data
-      # Volume para apontar para os scripts 
+      # Volume para apontar para os scripts da maquina host apontando para a pasta script dentro do container.
       - ./scripts:/scripts
+      # Apontar o script de inicialização sql e apontar para onde pede na documentação. https://hub.docker.com/_/postgres
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+  frontend:
+    image: nginx:1.13
+    volumes:
+      # Site
+      - ./web:/usr/share/nginx/html/
+    ports:
+      - 80:80
+
 

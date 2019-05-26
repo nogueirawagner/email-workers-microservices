@@ -69,3 +69,5 @@ Sempre que chegar uma requisição para /api vai fazer um proxy para http://app:
 
 <p>Veja o comportamento de quando o formulário envia a requisição agora para a rota localhost/api </p>
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/web-reverso.png"/>
+
+<p><b>Preste atenção na URL, agora de fato está usando o proxy reverso e não preciso mais expor a porta 8080 e a aplicação app não está mais disponível, fornecendo mais segurança.</b><p>

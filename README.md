@@ -21,3 +21,14 @@ Este comando é para listar os banco de dados dentro da instância. <br/>
 
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/db.png"/>
 
+<h1> Scripts de Inicialização </h1>
+<p>O script de inicialização init.sql está dentro da pasta scripts, e foi mapeado para dentro do volume criado para o container na pasta scripts.</p>
+
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/volume-db.png"/>
+<p> Foi criado o arquivo check.sql também dentro da pasta scripts para checar se foi criado a tabela e o banco de dados. <br/>
+  No script tem três comandos:</p> <br/> 
+<p> <b>\l</b> que é pra listar os bancos de dados existentes neste momento já deve ser listado o banco email_sender. </p>
+<p><b> \c email_sender </b> para conectar no banco </p><br/>
+<p> <b>\d emails </b> para mostrar uma descrição da tabela emails</<p>
+  
+<p>Para rodar o arquivo check.sql execute o comando <b>docker-compose exec db psql -U postgres -f /scripts/check.sql</b></p>

@@ -50,3 +50,17 @@ A requisição será enviada pelo nginx diretamente para esta rota, ao receber a
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/python.png"/>
 
 <p><b>Perceba que já temos duas portas expostas para o mundo real e isso não é bom. Não faz sentido deixar a porta do app exposta sendo que apenas o nginx deve acessá-lo internamente. Para isso vamos configurar o que é chamado de Proxy Reverso no nginx e esconder a porta do app.</b></p>
+
+<h1>Configurando proxy reverso </h1>
+<p>A configuração foi feita dentro do arquivo default.conf dentro da pasta nginx. <br/>
+Sempre que chegar uma requisição para /api vai fazer um proxy para http://app:8080/ exatamente a porta que foi definida no arquivo de sender em python, e app é o nome do serviço que definimos para o nome do serviço lá no docker-compose.yml<br/>
+</p>
+
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/default.png"/>
+
+<p>O que precisa de fazer agora é no serviço do frontend criar um volume para ler a configuração do proxy reverso dentro do container.<br>
+  Enviando o arquivo default.conf para dentro do container nginx, e no serviço app retirar a porta 8080. <br/>
+  Desta forma a única porta que fica exposta é a 80 do container do frontend.
+</p>
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/front-reverso.png"/>
+

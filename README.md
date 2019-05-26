@@ -38,4 +38,15 @@ Este comando é para listar os banco de dados dentro da instância. <br/>
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/frontend.png"/>
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/index.png"/>
 
+<h1>Criando o servidor em Python para receber as mensagens do nginx</h1>
+<p>Foi definido o método POST que será acessado na rota padrão localhost:8080
+A requisição será enviada pelo nginx diretamente para esta rota, ao receber a mensagem irá retornar a mensagem formatada na porta 8080.
+</p>
+<p>Para isso criamos um novo serviço no arquivo docker-compose.yml baseado na imagem do python e apontamos para a porta 8080, e criamos o seu volume passando a pasta app.</p>
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/compose-py.png"/>
+<p>Acessando a URL localhost:80 estamos consumindo o serviço do nginx e recebendo a resposta pela porta 8080 do serviço app.</p>
+ 
+ <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/sender.png"/>
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/python.png"/>
 
+<p><b>Perceba que já temos duas portas expostas para o mundo real e isso não é bom. Não faz sentido deixar a porta do app exposta sendo que apenas o nginx deve acessá-lo internamente. Para isso vamos configurar o que é chamado de Proxy Reverso no nginx e esconder a porta do app.</b></p>

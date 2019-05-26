@@ -32,3 +32,10 @@ Este comando é para listar os banco de dados dentro da instância. <br/>
 <p> <b>\d emails </b> para mostrar uma descrição da tabela emails</<p>
   
 <p>Para rodar o arquivo check.sql execute o comando <b>docker-compose exec db psql -U postgres -f /scripts/check.sql</b></p>
+
+<h1>Criando o serviço front end com nginx.</h1>
+<p>Adiciona mais um serviço no docker-compose.yml, aponta a pasta do diretório host que contém a página html, define a porta 80:80 que já é a padrão e aponta pra imagem do nginx:1.13</p>
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/frontend.png"/>
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/index.png"/>
+
+

@@ -64,3 +64,8 @@ Sempre que chegar uma requisição para /api vai fazer um proxy para http://app:
 </p>
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/front-reverso.png"/>
 
+<p>Agora no index.html faz um pequeno ajuste na ação do formulário, não apontando mais para localhost:8080 e sim para localhost/api.</p>
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/index-reverso.png"/>
+
+<p>Veja o comportamento de quando o formulário envia a requisição agora para a rota localhost/api </p>
+<image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/web-reverso.png"/>

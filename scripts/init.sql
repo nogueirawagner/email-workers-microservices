@@ -1,11 +1,10 @@
-create database email_sender
+create database email_sender;
 
-\c email_sender 
+\c email_sender
 
-create table email (
-    id serial not null,
-    datacriacao timestamp not null default current_timestamp,
-    assunto varchar(100) not null, 
-    mensagem varchar(250) not null,
+CREATE TABLE email(
+   id serial PRIMARY KEY,
+   datahora TIMESTAMPTZ NOT NULL default current_timestamp,
+   assunto VARCHAR (50) NOT NULL,
+   mensagem VARCHAR (355) UNIQUE NOT NULL
 );
-

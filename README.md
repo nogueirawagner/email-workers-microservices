@@ -73,4 +73,13 @@ Sempre que chegar uma requisição para /api vai fazer um proxy para http://app:
 <p><b>Preste atenção na URL, agora de fato está usando o proxy reverso e não preciso mais expor a porta 8080 e a aplicação app não está mais disponível, fornecendo mais segurança.</b><p>
   
  <h1>Processando a fila de mensagens gravada no Redis</h1>
+ 
+ <p>Neste exemplo executando docker-compose up -d irá subir cada container com o seu serviço, apenas uma instância</p>
  <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/worker1.png"/>
+ </br>
+ 
+ <p>Como criamos um serviço por contâiner fica muito mais fácil escalar um serviço em específico. </br>
+ Precisamos escalar o serviço de worker, para quantas instâncias quisermos.</p>
+ <p>Para isso veja as alterações sofridas no docker-compose e a criação do arquivo Dockerfile dentro da pasta worker.</p>
+ <p>Com para escalar o serviço de worker utilizará a flag --scale passando o nome do serviço e a quantidade de instâncias que queremos.</br>
+ O comando então fica assim: docker-compose up -d --scale worker=3</p>

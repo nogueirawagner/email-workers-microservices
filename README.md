@@ -71,3 +71,6 @@ Sempre que chegar uma requisição para /api vai fazer um proxy para http://app:
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/web-reverso.png"/>
 
 <p><b>Preste atenção na URL, agora de fato está usando o proxy reverso e não preciso mais expor a porta 8080 e a aplicação app não está mais disponível, fornecendo mais segurança.</b><p>
+  
+ <h1>Processando a fila de mensagens gravada no Redis</h1>
+ <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/worker1.png"/>

@@ -71,3 +71,24 @@ Sempre que chegar uma requisição para /api vai fazer um proxy para http://app:
 <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/web-reverso.png"/>
 
 <p><b>Preste atenção na URL, agora de fato está usando o proxy reverso e não preciso mais expor a porta 8080 e a aplicação app não está mais disponível, fornecendo mais segurança.</b><p>
+  
+ <h1>Processando a fila de mensagens gravada no Redis</h1>
+ 
+ <p>Neste exemplo executando docker-compose up -d irá subir cada container com o seu serviço, apenas uma instância</p>
+ <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/worker1.png"/>
+ </br>
+ 
+ <h1> Escalar é preciso</h1>
+ <p>Como criamos um serviço por contâiner fica muito mais fácil escalar um serviço em específico. </br>
+ Precisamos escalar o serviço de worker, para quantas instâncias quisermos.</p>
+ <p>Para isso veja as alterações sofridas no docker-compose e a criação do arquivo Dockerfile dentro da pasta worker.</p>
+ <p>Com para escalar o serviço de worker utilizará a flag --scale passando o nome do serviço e a quantidade de instâncias que queremos.</br>
+ O comando então fica assim: docker-compose up -d --scale worker=3</p>
+ <p>Na imagem abaixo ao executar o compose vemos que foi criado mais de uma instância para o serviço worker</p>
+ 
+ <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/compose-3.png"/>
+ </br>
+ <p>Veja agora o processamento assíncrono de cada serviço, a medida que a mensagem vai entrando na fila da Redis o worker livre processa a imagem.</p>
+ <p>Para monitorar somente os logs do serviço o worker: docker-compose logs -f -t worker</p>
+ <image src="https://github.com/nogueirawagner/email-workers-microservices/blob/master/images/worker3.png"/>
+ 
